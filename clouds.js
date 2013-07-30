@@ -45,14 +45,15 @@ Clouds = {
 
         if (c.direction === "left") {
             c.finalX = (250 * c.scale) + c.x
-            c.transform = 'rotateY(180deg) scale('+c.scale+')';
+            c.transform = 'scale('+(-c.scale)+', '+c.scale+')';
         } else {
             c.finalX = (window.innerWidth - c.x);
-            c.transform = 'rotateY(0deg) scale('+c.scale+')';
+            c.transform = 'scale('+c.scale+')';
         }
 
         elem.style['-webkit-transform'] = c.transform;
-        document.body.appendChild(elem);
+        // prepend to
+        document.body.insertBefore(elem, document.body.firstChild);//appendChild(elem);
         c.elem = elem;
         Clouds.clouds.push(c);
 
@@ -62,7 +63,7 @@ Clouds = {
     },
     startCloud: function(cloud) {
         cloud.startTime = new Date().getTime();
-        var seconds = cloud.speed/cloud.scale^2;
+        var seconds = cloud.speed/(cloud.scale*cloud.scale);
         cloud.elem.style['-webkit-transition'] = 'all ' + seconds + 's linear';
         cloud.elem.style['-webkit-transform'] = cloud.transform + ' translateX('+cloud.finalX/cloud.scale+'px)';
     },

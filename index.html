@@ -12,57 +12,13 @@
             <img class="logo-x" src="images/x.svg" />
         </div>
     </div>
-    <script>
-        //////// HACK HACK HACK HACK HACK I'll clean this up laterz
-        var ROTATION = 30;
-        var frameID, tid, lastX = 0, lastY = 0, spinTime = 0, moveTime = 0;
-        var logo = document.querySelector('.logo');
-        var logoRotation = document.querySelector('.logo-rotation');
-        var logoX = document.querySelector('.logo-x');
+    <script type="text/javascript" src="copter.js"></script>
+    <script type="text/javascript" src="clouds.js"></script>
+    <script type="text/javascript">
+        Copter.init(document.querySelector('.logo'));
         document.body.addEventListener('click', function () {
-            clearTimeout(tid);
-            if (logo.className.indexOf('copter') === -1) {
-                logo.classList.add('copter');
-                tid = setTimeout(startFlying, 500);
-            } else {
-                stopFlying();
-                logo.classList.remove('copter');
-            }
+            Copter.toggle();
         });
-        function fly() {
-            var x, y, sx, sy, a = ROTATION;
-            var now = new Date().getTime();
-            if (now - spinTime > 30) {
-                if (logoX.className.indexOf('flipped') === -1) {
-                    logoX.classList.add('flipped');
-                } else {
-                    logoX.classList.remove('flipped');
-                }
-                spinTime = now;
-            } else if (now - moveTime > 3000) {
-                x = Math.random() * (window.innerWidth - logo.clientWidth);
-                y = Math.random() * (window.innerHeight - logo.clientHeight);
-                sx = sy = 0.6 + Math.random() * 0.4;
-                a *= (x - lastX) / window.innerWidth;
-                logo.style['-webkit-transform'] = 'translate('+x+'px,'+y+'px) scale('+sx+','+sy+')';
-                if (x < lastX) {
-                    sx = -sx;
-                }
-                logoRotation.style['-webkit-transform'] = 'rotate('+a+'deg) scale('+(sx/sy)+',1)';
-                lastX = x; lastY = y;
-                moveTime = now;
-            }
-            frameID = webkitRequestAnimationFrame(fly);
-        }
-        function startFlying() {
-            logo.classList.add('flying');
-            fly();
-        }
-        function stopFlying() {
-            logo.classList.remove('flying');
-            webkitCancelAnimationFrame(frameID);
-        }
     </script>
-    <script type="text/javascript" src="boxercopter.js"></script>
 </body>
 </html>
