@@ -60,9 +60,9 @@ BoxerCopter.clouds = (function () {
             c.elem = elem;
             Clouds.clouds.push(c);
 
-            (function(cloud) {
-                BoxerCopter.support.requestAnimationFrame(function() {Clouds.startCloud(cloud);});
-            })(c);
+            setTimeout(function() {
+                Clouds.startCloud(c);
+            }, 1);
         },
         startCloud: function(cloud) {
             cloud.startTime = new Date().getTime();
