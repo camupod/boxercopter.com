@@ -1,5 +1,36 @@
 html, body {
 	width: 100%;
 	height: 100%;
+    margin: 0;
 	background: rgb(0, 185, 242) url(images/box_cloud_white.png) center center no-repeat;
+    font-family: Calibri,Arial,sans-serif;
+    text-align: center;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.logo img {
+    -webkit-transition: all 0.5s;
+}
+
+.logo-b {
+
+}
+.logo-o {
+    margin-left: -44px;
+}
+.logo-x {
+    margin-left: -50px;
+}
+
+.copter .logo-b {
+    -webkit-transform: translate(120px) rotate(-90deg);
+}
+.copter .logo-o {
+    -webkit-transform: translate(14px, -38px) scale(0.6);
+}
+.copter .logo-x {
+    -webkit-transform: translate(-190px, -100px) rotate(-22deg) skew(68deg) scale(0.5);
 }

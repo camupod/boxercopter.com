@@ -6,5 +6,21 @@
     <script type="text/javascript" src="boxercopter.js"></script>
 </head>
 <body>
+    <div class="logo">
+        <img class="logo-b" src="images/b.svg" />
+        <img class="logo-o" src="images/o.svg" />
+        <img class="logo-x" src="images/x.svg" />
+    </div>
+    <script>
+        document.body.addEventListener('click', function () {
+            var logo = document.querySelector('.logo');
+            if (logo.className.indexOf('copter') === -1) {
+                logo.classList.add('copter');
+            } else {
+                logo.classList.remove('copter');
+            }
+
+        });
+    </script>
 </body>
 </html>
