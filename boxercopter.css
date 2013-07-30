@@ -17,30 +17,37 @@ html, body {
 
 .cloud-left {
     -webkit-transform:scale(-1, 1);
+    transform:scale(-1, 1);
 }
 .cloud-right {
     -webkit-transform:none;
+    transform:none;
 }
 
 .logo {
     display: inline-block;
     z-index: 1;
     -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .copter.flying {
     -webkit-transition: all 2.5s;
+    transition: all 2.5s;
 }
 
 .copter.flying .logo-rotation {
     -webkit-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 .logo img {
     -webkit-transition: all 0.5s;
+    transition: all 0.5s;
 }
 .copter.flying img {
-    -webkit-transition: none 0.5s;
+    -webkit-transition: none;
+    transition: none;
 }
 
 .logo-b {
@@ -55,14 +62,17 @@ html, body {
 
 .copter .logo-b {
     -webkit-transform: translate(120px) rotate(-90deg);
+    transform: translate(120px) rotate(-90deg);
 }
 .copter .logo-o {
     -webkit-transform: translate(14px, -38px) scale(0.6);
-    /*-webkit-transform: translate(-168px, 20px) scale(0.3);*/
+    transform: translate(14px, -38px) scale(0.6);
 }
 .copter .logo-x {
     -webkit-transform: translate(-190px, -100px) rotate(-22deg) skew(68deg) scale(0.5);
+    transform: translate(-190px, -100px) rotate(-22deg) skew(68deg) scale(0.5);
 }
 .copter .logo-x.flipped {
     -webkit-transform: translate(-115px, -100px) rotate(20deg) skew(-68deg) scale(0.5);
+    transform: translate(-115px, -100px) rotate(20deg) skew(-68deg) scale(0.5);
 }

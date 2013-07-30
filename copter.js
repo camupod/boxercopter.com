@@ -1,4 +1,4 @@
-var Copter = (function () {
+BoxerCopter.copter = (function () {
     'use strict';
     var MAX_ROTATION_DEGREES = 30;
     var MOVE_DURATION = 3000;
@@ -12,6 +12,7 @@ var Copter = (function () {
             this.flying = false;
         },
         fly: function () {
+            console.log('flying')
             var x, y, sx, sy,
                 self = this,
                 now = new Date().getTime(),
@@ -29,16 +30,16 @@ var Copter = (function () {
                 y = Math.random() * (window.innerHeight - this.el.clientHeight);
                 sx = sy = 0.6 + Math.random() * 0.4;
                 rotation *= (x - this.lastX) / window.innerWidth;
-                this.el.style['-webkit-transform'] = 'translate('+x+'px,'+y+'px) scale('+sx+','+sy+')';
+                this.el.style[BoxerCopter.support.transform] = 'translate('+x+'px,'+y+'px) scale('+sx+','+sy+')';
                 if (x < this.lastX) {
                     sx = -sx;
                 }
-                this.elRotation.style['-webkit-transform'] = 'rotate('+rotation+'deg) scale('+(sx/sy)+',1)';
+                this.elRotation.style[BoxerCopter.support.transform] = 'rotate('+rotation+'deg) scale('+(sx/sy)+',1)';
                 this.lastX = x;
                 this.lastY = y;
                 this.moveTime = now;
             }
-            this.frameID = webkitRequestAnimationFrame(function () {
+            this.frameID = BoxerCopter.support.requestAnimationFrame(function () {
                 self.fly();
             });
         },
@@ -56,7 +57,7 @@ var Copter = (function () {
             clearTimeout(this.timeoutID);
             this.el.classList.remove('copter');
             this.el.classList.remove('flying');
-            webkitCancelAnimationFrame(this.frameID);
+            BoxerCopter.support.cancelAnimationFrame(this.frameID);
             this.flying = false;
         },
         toggle: function () {
