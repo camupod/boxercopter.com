@@ -14,6 +14,10 @@ html, body {
     -webkit-transition: all 2.5s;
 }
 
+.copter.flying .logo-rotation {
+    -webkit-transition: all 0.5s;
+}
+
 .logo img {
     -webkit-transition: all 0.5s;
 }
@@ -36,6 +40,7 @@ html, body {
 }
 .copter .logo-o {
     -webkit-transform: translate(14px, -38px) scale(0.6);
+    /*-webkit-transform: translate(-168px, 20px) scale(0.3);*/
 }
 .copter .logo-x {
     -webkit-transform: translate(-190px, -100px) rotate(-22deg) skew(68deg) scale(0.5);
