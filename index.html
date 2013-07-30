@@ -12,15 +12,51 @@
         <img class="logo-x" src="images/x.svg" />
     </div>
     <script>
+        //////// HACK HACK HACK HACK HACK I'll clean this up laterz
+        var frameID, tid, lastX = 0, lastY = 0, spinTime = 0, moveTime = 0;
+        var logo = document.querySelector('.logo');
         document.body.addEventListener('click', function () {
-            var logo = document.querySelector('.logo');
+            clearTimeout(tid);
             if (logo.className.indexOf('copter') === -1) {
                 logo.classList.add('copter');
+                tid = setTimeout(startFlying, 500);
             } else {
+                stopFlying();
                 logo.classList.remove('copter');
             }
-
         });
+        function fly() {
+            var x, y, sx, sy;
+            var logoX = document.querySelector('.logo-x');
+            var now = new Date().getTime();
+            if (now - spinTime > 100) {
+                if (logoX.className.indexOf('flipped') === -1) {
+                    logoX.classList.add('flipped');
+                } else {
+                    logoX.classList.remove('flipped');
+                }
+                spinTime = now;
+            } else if (now - moveTime > 3000) {
+                x = Math.random() * (window.innerWidth - logo.clientWidth);
+                y = Math.random() * (window.innerHeight - logo.clientHeight);
+                sx = sy = 0.8 + Math.random() * 0.4;
+                if (x < lastX) {
+                    sx = -sx;
+                }
+                lastX = x; lastY = y;
+                logo.style['-webkit-transform'] = 'translate('+x+'px,'+y+'px) scale('+sx+','+sy+')';
+                moveTime = now;
+            }
+            frameID = webkitRequestAnimationFrame(fly);
+        }
+        function startFlying() {
+            logo.classList.add('flying');
+            fly();
+        }
+        function stopFlying() {
+            logo.classList.remove('flying');
+            webkitCancelAnimationFrame(frameID);
+        }
     </script>
 </body>
 </html>

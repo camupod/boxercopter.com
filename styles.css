@@ -4,15 +4,21 @@ html, body {
     margin: 0;
 	background: rgb(0, 185, 242) url(images/box_cloud_white.png) center center no-repeat;
     font-family: Calibri,Arial,sans-serif;
-    text-align: center;
 }
 
 .logo {
     display: inline-block;
 }
 
+.copter.flying {
+    -webkit-transition: all 2.5s;
+}
+
 .logo img {
     -webkit-transition: all 0.5s;
+}
+.copter.flying img {
+    -webkit-transition: none 0.5s;
 }
 
 .logo-b {
@@ -33,4 +39,7 @@ html, body {
 }
 .copter .logo-x {
     -webkit-transform: translate(-190px, -100px) rotate(-22deg) skew(68deg) scale(0.5);
+}
+.copter .logo-x.flipped {
+    -webkit-transform: translate(-115px, -100px) rotate(20deg) skew(-68deg) scale(0.5);
 }
