@@ -14,13 +14,17 @@
     </div>
     <script type="text/javascript" src="boxercopter.min.js"></script>
     <script type="text/javascript">
-        BoxerCopter.copter.init(document.querySelector('.logo'));
+        var initTID,
+            logoEl = document.querySelector('.logo');
+        BoxerCopter.copter.init(logoEl);
         BoxerCopter.clouds.startAnimation();
-        document.body.addEventListener('touchstart', onclick);
-        document.body.addEventListener('click', onclick);
-        function onclick() {
+        document.body.addEventListener('touchstart', toggle);
+        document.body.addEventListener('click', toggle);
+        function toggle() {
+            clearTimeout(initTID);
             BoxerCopter.copter.toggle();
         }
+        initTID = setTimeout(toggle, 3000);
     </script>
 </body>
 </html>

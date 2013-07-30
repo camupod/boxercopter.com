@@ -25,8 +25,13 @@ html, body {
 }
 
 .logo {
+    opacity: 0;
+    width: 594px;
+    height: 249px;
     display: inline-block;
     z-index: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
 }

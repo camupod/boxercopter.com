@@ -61,13 +61,13 @@ BoxerCopter.clouds = (function () {
             Clouds.clouds.push(c);
 
             (function(cloud) {
-                BoxerCopter.support.requestAnimationFrame(function() {Clouds.startCloud(cloud)});
+                BoxerCopter.support.requestAnimationFrame(function() {Clouds.startCloud(cloud);});
             })(c);
         },
         startCloud: function(cloud) {
             cloud.startTime = new Date().getTime();
-            var seconds = cloud.speed/(cloud.scale*cloud.scale);
-            cloud.elem.style[BoxerCopter.support.transition] = 'all ' + seconds + 's linear';
+            cloud.seconds = cloud.speed/(cloud.scale*cloud.scale);
+            cloud.elem.style[BoxerCopter.support.transition] = 'all ' + cloud.seconds + 's linear';
             cloud.elem.style[BoxerCopter.support.transform] = cloud.transform + ' translateX('+cloud.finalX/cloud.scale+'px)';
         },
         respawn: function() {
@@ -75,13 +75,13 @@ BoxerCopter.clouds = (function () {
 
             for (i = Clouds.clouds.length - 1; i >= 0; i--) {
                 cloud = Clouds.clouds[i];
-                if (now - cloud.startTime > 30 * 1000) {
+                if (now - cloud.startTime > cloud.seconds * 1000) {
                     cloud.elem.parentNode.removeChild(cloud.elem);
                     Clouds.clouds.splice(i, 1);
                 }
             }
 
-            if (now - Clouds.lastSpawnTime > 3 * 1000) {
+            if (now - Clouds.lastSpawnTime > 5 * 1000) {
                 Clouds.addCloud(false);
                 Clouds.lastSpawnTime = now;
             }

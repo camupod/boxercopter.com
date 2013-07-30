@@ -10,6 +10,8 @@ BoxerCopter.copter = (function () {
             this.lastX = this.lastY = this.spinTime = this.moveTime = 0;
             this.frameID = this.timeoutID = null;
             this.flying = false;
+            this.position((window.innerWidth - this.el.clientWidth)/2, window.innerHeight - this.el.clientHeight);
+            this.el.style.opacity = 1;
         },
         fly: function () {
             console.log('flying')
@@ -66,6 +68,9 @@ BoxerCopter.copter = (function () {
             } else {
                 this.start();
             }
+        },
+        position: function (x, y) {
+            this.el.style[BoxerCopter.support.transform] = 'translate('+x+'px,'+y+'px)';
         }
     };
 })();
