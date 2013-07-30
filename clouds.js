@@ -7,7 +7,7 @@ BoxerCopter.clouds = (function () {
         SPEED_MIN: 10,
         SPEED_MAX: 30,
         Y_MIN: 0,
-        Y_MAX: 200,
+        Y_MAX: 40,
 
         lastSpawnTime: 0,
 
@@ -43,7 +43,7 @@ BoxerCopter.clouds = (function () {
 
             var elem = document.createElement('div');
             elem.classList.add('cloud');
-            elem.style['top'] = c.y + 'px';
+            elem.style['top'] = c.y + '%';
             elem.style['left'] = c.x + 'px';
 
             if (c.direction === "left") {

@@ -7,6 +7,14 @@ html, body {
     font-family: Calibri,Arial,sans-serif;
 }
 
+.grass {
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    background: rgb(162,187,57);
+}
+
 .cloud {
     content:"";
     width:239px;

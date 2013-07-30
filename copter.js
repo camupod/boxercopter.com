@@ -14,7 +14,6 @@ BoxerCopter.copter = (function () {
             this.el.style.opacity = 1;
         },
         fly: function () {
-            console.log('flying')
             var x, y, sx, sy,
                 self = this,
                 now = new Date().getTime(),
