@@ -12,6 +12,9 @@ BoxerCopter.clouds = (function () {
         lastSpawnTime: 0,
 
         clouds: [],
+        init: function (el) {
+            this.el = el;
+        },
         randomNum: function(min, max) {
             return Math.random() * (max - min) + min;
         },
@@ -56,7 +59,7 @@ BoxerCopter.clouds = (function () {
 
             elem.style[BoxerCopter.support.transform] = c.transform;
             // prepend to
-            document.body.insertBefore(elem, document.body.firstChild);//appendChild(elem);
+            this.el.appendChild(elem);
             c.elem = elem;
             Clouds.clouds.push(c);
 
@@ -67,7 +70,7 @@ BoxerCopter.clouds = (function () {
         startCloud: function(cloud) {
             cloud.startTime = new Date().getTime();
             cloud.seconds = cloud.speed/(cloud.scale*cloud.scale);
-            cloud.elem.style[BoxerCopter.support.transition] = 'all ' + cloud.seconds + 's linear';
+            cloud.elem.style[BoxerCopter.support.transition] = BoxerCopter.support.transform + ' ' + cloud.seconds + 's linear';
             cloud.elem.style[BoxerCopter.support.transform] = cloud.transform + ' translateX('+cloud.finalX/cloud.scale+'px)';
         },
         respawn: function() {
