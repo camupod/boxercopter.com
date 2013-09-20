@@ -141,18 +141,18 @@ html, body {
 }
 
 .copter .logo-b {
-    -webkit-transform: translate(120px) rotate(-90deg);
-    transform: translate(120px) rotate(-90deg);
+    -webkit-transform: translate3d(120px, 0, 0) rotate(-90deg);
+    transform: translate3d(120px, 0, 0) rotate(-90deg);
 }
 .copter .logo-o {
-    -webkit-transform: translate(14px, -38px) scale(0.6);
-    transform: translate(14px, -38px) scale(0.6);
+    -webkit-transform: translate3d(14px, -38px, 0) scale(0.6);
+    transform: translate3d(14px, -38px, 0) scale(0.6);
 }
 .copter .logo-x {
-    -webkit-transform: translate(-190px, -100px) rotate(-22deg) skew(68deg) scale(0.5);
-    transform: translate(-190px, -100px) rotate(-22deg) skew(68deg) scale(0.5);
+    -webkit-transform: translate3d(-190px, -100px, 0) rotate(-22deg) skew(68deg) scale(0.5);
+    transform: translate3d(-190px, -100px, 0) rotate(-22deg) skew(68deg) scale(0.5);
 }
 .copter .logo-x.flipped {
-    -webkit-transform: translate(-115px, -100px) rotate(20deg) skew(-68deg) scale(0.5);
-    transform: translate(-115px, -100px) rotate(20deg) skew(-68deg) scale(0.5);
+    -webkit-transform: translate3d(-115px, -100px, 0) rotate(20deg) skew(-68deg) scale(0.5);
+    transform: translate3d(-115px, -100px, 0) rotate(20deg) skew(-68deg) scale(0.5);
 }

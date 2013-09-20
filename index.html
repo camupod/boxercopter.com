@@ -30,8 +30,11 @@
                                                   ooooooo
 -->
     <title>BoxerCopter</title>
-    <link rel="stylesheet" href="boxercopter.min.css" />
-    <script type="text/javascript" src="boxercopter.min.js"></script>
+    <link rel="stylesheet" href="boxercopter.css" />
+    <script type="text/javascript" src="boxercopter.js"></script>
+    <script type="text/javascript" src="copter.js"></script>
+    <script type="text/javascript" src="clouds.js"></script>
+    <script type="text/javascript" src="support.js"></script>
 </head>
 <body>
     <div class="background background-morning"></div>
@@ -61,7 +64,7 @@
             BoxerCopter.copter.toggle();
         }
         function updateTOD(force) {
-            document.body.setAttribute('class', BoxerCopter.timeOfDay());
+            document.body.classList.add(BoxerCopter.timeOfDay());
             if (force === true) {
                 document.body.classList.add('no-tod-transitions');
             }

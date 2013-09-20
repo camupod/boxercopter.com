@@ -71,7 +71,7 @@ BoxerCopter.clouds = (function () {
             cloud.startTime = new Date().getTime();
             cloud.seconds = cloud.speed/(cloud.scale*cloud.scale);
             cloud.elem.style[BoxerCopter.support.transition] = BoxerCopter.support.transform + ' ' + cloud.seconds + 's linear';
-            cloud.elem.style[BoxerCopter.support.transform] = cloud.transform + ' translateX('+cloud.finalX/cloud.scale+'px)';
+            cloud.elem.style[BoxerCopter.support.transform] = cloud.transform + ' translateX('+cloud.finalX/cloud.scale+'px) translateZ(0)';
         },
         respawn: function() {
             var cloud, i, now = new Date().getTime();

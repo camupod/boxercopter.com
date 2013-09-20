@@ -31,11 +31,11 @@ BoxerCopter.copter = (function () {
                 y = Math.random() * (window.innerHeight - this.el.clientHeight);
                 sx = sy = 0.6 + Math.random() * 0.4;
                 rotation *= (x - this.lastX) / window.innerWidth;
-                this.el.style[BoxerCopter.support.transform] = 'translate('+x+'px,'+y+'px) scale('+sx+','+sy+')';
+                this.el.style[BoxerCopter.support.transform] = 'translate3d('+x+'px,'+y+'px, 0px) scale('+sx+','+sy+')';
                 if (x < this.lastX) {
                     sx = -sx;
                 }
-                this.elRotation.style[BoxerCopter.support.transform] = 'rotate('+rotation+'deg) scale('+(sx/sy)+',1)';
+                this.elRotation.style[BoxerCopter.support.transform] = 'rotate('+rotation+'deg) scale('+(sx/sy)+',1) translateZ(0)';
                 this.lastX = x;
                 this.lastY = y;
                 this.moveTime = now;
