@@ -76,7 +76,7 @@ html, body {
     content:"";
     width:239px;
     height:141px;
-    background:url('images/box_cloud_white.png') center center no-repeat;
+    background:url('images/cloud.svg') center center no-repeat;
     position:absolute;
 }
 
